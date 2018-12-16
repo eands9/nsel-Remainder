@@ -25,9 +25,7 @@ class ViewController: UIViewController {
     
     var randomNumA : Int = 0
     var randomNumB : Int = 0
-    
-    var firstNum : Int = 0
-    var secondNum : Int = 0
+
     var questionTxt : String = ""
     var answerCorrect : Int = 0
     var answerUser : Int = 0
@@ -52,25 +50,15 @@ class ViewController: UIViewController {
     
     func askQuestion(){
         //3 digit questions starting at 100
-        randomNumA = Int.random(in: 10 ..< 1001)
-        randomNumB = Int.random(in: 10 ..< 1001)
-        
-        if randomNumA > randomNumB {
-            firstNum = randomNumA
-            secondNum = randomNumB
-        }
-        else{
-            firstNum = randomNumB
-            secondNum = randomNumA
-        }
+        randomNumA = Int.random(in: 1000 ... 10000)
+        randomNumB = Int.random(in: 0 ... 10)
     
-    questionLabel.text = "\(firstNum) - \(secondNum)"
-    readMe(myText: "What is \(firstNum) minus \(secondNum)?")
+    questionLabel.text = "What is remainder of \(randomNumA) divide by \(randomNumB)?"
     }
     
     func checkAnswer(){
         answerUser = (answerTxt.text! as NSString).integerValue
-        answerCorrect = firstNum - secondNum
+        answerCorrect = randomNumA % randomNumB
         
         if answerCorrect == answerUser {
             correctAnswers += 1
