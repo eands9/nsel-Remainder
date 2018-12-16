@@ -50,8 +50,8 @@ class ViewController: UIViewController {
     
     func askQuestion(){
         //3 digit questions starting at 100
-        randomNumA = Int.random(in: 1000 ... 10000)
-        randomNumB = Int.random(in: 0 ... 10)
+        randomNumA = Int.random(in: 500 ... 100000)
+        randomNumB = Int.random(in: 2 ... 9)
     
     questionLabel.text = "What is remainder of \(randomNumA) divide by \(randomNumB)?"
     }
